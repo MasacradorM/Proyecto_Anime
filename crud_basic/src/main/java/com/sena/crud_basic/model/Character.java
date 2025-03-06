@@ -28,6 +28,46 @@ public class Character {
     @ManyToOne
     @JoinColumn(name = "anime_id", nullable = false)
     private anime anime_id;
+
+    public void setCharacter_id(int character_id) {
+        this.character_id = character_id;
+    }
+
+    public int getCharacter_id() {
+        return character_id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setAnime_id(anime anime_id) {
+        this.anime_id = anime_id;
+    }
+
+    public anime getAnime_id() {
+        return anime_id;
+    }
   
 }
 

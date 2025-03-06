@@ -24,5 +24,37 @@ public class platform {
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
     private country country;
+
+    public void setPlatform_id(int platform_id) {
+        this.platform_id = platform_id;
+    }
+
+    public int getPlatform_id() {
+        return platform_id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setCountry(country country) {
+        this.country = country;
+    }
+
+    public country getCountry() {
+        return country;
+    }
     
 }

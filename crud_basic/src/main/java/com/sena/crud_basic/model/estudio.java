@@ -25,4 +25,36 @@ public class estudio {
     @JoinColumn(name = "country_id", nullable = false)
     private country country;
 
+    public void setEstudio_id(int estudio_id) {
+        this.estudio_id = estudio_id;
+    }
+
+    public int getEstudio_id() {
+        return estudio_id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setCountry(country country) {
+        this.country = country;
+    }
+
+    public country getCountry() {
+        return country;
+    }
+
 }

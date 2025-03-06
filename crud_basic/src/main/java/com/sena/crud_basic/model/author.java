@@ -27,4 +27,36 @@ public class author {
     @JoinColumn(name = "country_id", nullable = false)
     private country country;
 
+    public void setAuthor_id(int author_id) {
+        this.author_id = author_id;
+    }
+
+    public int getAuthor_id() {
+        return author_id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setCountry(country country) {
+        this.country = country;
+    }
+
+    public country getCountry() {
+        return country;
+    }
+
 }

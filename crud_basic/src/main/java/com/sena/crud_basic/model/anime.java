@@ -32,5 +32,53 @@ public class anime {
     @ManyToOne
     @JoinColumn(name = "estudio_id", nullable = false)
     private estudio estudio;
+
+    public void setAnime_id(int anime_id) {
+        this.anime_id = anime_id;
+    }
+
+    public int getAnime_id() {
+        return anime_id;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setYear_premiere(Year year_premiere) {
+        this.year_premiere = year_premiere;
+    }
+
+    public Year getYear_premiere() {
+        return year_premiere;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setEstudio(estudio estudio) {
+        this.estudio = estudio;
+    }
+
+    public estudio getEstudio() {
+        return estudio;
+    }
    
 }

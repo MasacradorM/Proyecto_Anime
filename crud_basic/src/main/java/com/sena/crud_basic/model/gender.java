@@ -16,4 +16,20 @@ public class gender {
 
     @Column(name="name", length = 50, nullable = false)
     private String name;
+
+    public void setGender_id(int gender_id) {
+        this.gender_id = gender_id;
+    }
+
+    public int getGender_id() {
+        return gender_id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
