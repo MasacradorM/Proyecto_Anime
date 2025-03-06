@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity(name="estudio")
-public class estudio {
+public class Estudio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="estudio_id")
@@ -23,7 +23,7 @@ public class estudio {
 
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
-    private country country;
+    private Country country;
 
     public void setEstudio_id(int estudio_id) {
         this.estudio_id = estudio_id;
@@ -49,11 +49,11 @@ public class estudio {
         return image;
     }
 
-    public void setCountry(country country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 
-    public country getCountry() {
+    public Country getCountry() {
         return country;
     }
 

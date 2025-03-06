@@ -454,6 +454,9 @@ ol {
 	position: relative;
 	z-index: 9;
 }
+.opacar{
+	opacity: 1.5;
+}
 
 .hero__text .label {
 	font-size: 13px;

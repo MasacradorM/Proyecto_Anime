@@ -11,7 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity(name="anime")
-public class anime {
+public class Anime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="anime_id")
@@ -31,7 +31,7 @@ public class anime {
 
     @ManyToOne
     @JoinColumn(name = "estudio_id", nullable = false)
-    private estudio estudio;
+    private Estudio estudio;
 
     public void setAnime_id(int anime_id) {
         this.anime_id = anime_id;
@@ -73,11 +73,11 @@ public class anime {
         return image;
     }
 
-    public void setEstudio(estudio estudio) {
+    public void setEstudio(Estudio estudio) {
         this.estudio = estudio;
     }
 
-    public estudio getEstudio() {
+    public Estudio getEstudio() {
         return estudio;
     }
    

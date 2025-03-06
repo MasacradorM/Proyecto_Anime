@@ -27,7 +27,7 @@ public class Character {
 
     @ManyToOne
     @JoinColumn(name = "anime_id", nullable = false)
-    private anime anime_id;
+    private Anime anime_id;
 
     public void setCharacter_id(int character_id) {
         this.character_id = character_id;
@@ -61,11 +61,11 @@ public class Character {
         return image;
     }
 
-    public void setAnime_id(anime anime_id) {
+    public void setAnime_id(Anime anime_id) {
         this.anime_id = anime_id;
     }
 
-    public anime getAnime_id() {
+    public Anime getAnime_id() {
         return anime_id;
     }
   

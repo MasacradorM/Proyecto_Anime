@@ -10,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 
 
 @Entity(name="author")
-public class author {
+public class Author {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class author {
 
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
-    private country country;
+    private Country country;
 
     public void setAuthor_id(int author_id) {
         this.author_id = author_id;
@@ -51,11 +51,11 @@ public class author {
         return image;
     }
 
-    public void setCountry(country country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 
-    public country getCountry() {
+    public Country getCountry() {
         return country;
     }
 
