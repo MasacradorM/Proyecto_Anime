@@ -33,6 +33,15 @@ public class Anime {
     @JoinColumn(name = "estudio_id", nullable = false)
     private Estudio estudio;
 
+    public Anime(int anime_id, String titulo, String synopsis, Year year_premiere, String image, Estudio estudio) {
+        this.anime_id = anime_id;
+        this.titulo = titulo;
+        this.synopsis = synopsis;
+        this.year_premiere = year_premiere;
+        this.image = image;
+        this.estudio = estudio;
+    }
+
     public void setAnime_id(int anime_id) {
         this.anime_id = anime_id;
     }

@@ -16,6 +16,11 @@ public class Country {
 
     @Column(name="name", length = 50, nullable = false)
     private String name;
+
+    public Country(int country_id, String name) {
+        this.country_id = country_id;
+        this.name = name;
+    }
     
     public void setCountry_id(int country_id) {
         this.country_id = country_id;

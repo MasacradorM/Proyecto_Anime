@@ -29,6 +29,14 @@ public class Character {
     @JoinColumn(name = "anime_id", nullable = false)
     private Anime anime_id;
 
+    public Character(int character_id, String name, String description, String image, Anime anime_id) {
+        this.character_id = character_id;
+        this.name = name;
+        this.description = description;
+        this.image = image;
+        this.anime_id = anime_id;
+    }
+
     public void setCharacter_id(int character_id) {
         this.character_id = character_id;
     }

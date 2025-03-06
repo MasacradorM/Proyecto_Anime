@@ -1,7 +1,7 @@
 package com.sena.crud_basic.model;
 import jakarta.persistence.Entity;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +20,7 @@ public class Season {
     private String name;
 
     @Column(name="release_date", nullable = false)
-    private Date release_date;
+    private LocalDate release_date;
 
     public void setSeason_id(int season_id) {
         this.season_id = season_id;
@@ -38,11 +38,11 @@ public class Season {
         return name;
     }
 
-    public void setRelease_date(Date release_date) {
+    public void setRelease_date(LocalDate release_date) {
         this.release_date = release_date;
     }
 
-    public Date getRelease_date() {
+    public LocalDate getRelease_date() {
         return release_date;
     }
 

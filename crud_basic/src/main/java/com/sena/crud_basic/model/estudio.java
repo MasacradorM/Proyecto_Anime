@@ -25,6 +25,13 @@ public class Estudio {
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
+    public Estudio(int estudio_id, String name, String image, Country country) {
+        this.estudio_id = estudio_id;
+        this.name = name;
+        this.image = image;
+        this.country = country;
+    }
+
     public void setEstudio_id(int estudio_id) {
         this.estudio_id = estudio_id;
     }

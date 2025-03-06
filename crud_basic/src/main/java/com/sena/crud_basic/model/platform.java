@@ -25,6 +25,13 @@ public class Platform {
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
+    public Platform(int platform_id, String name, String image, Country country) {
+        this.platform_id = platform_id;
+        this.name = name;
+        this.image = image;
+        this.country = country;
+    }
+
     public void setPlatform_id(int platform_id) {
         this.platform_id = platform_id;
     }

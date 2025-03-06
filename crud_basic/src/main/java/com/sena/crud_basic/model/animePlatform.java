@@ -15,6 +15,10 @@ public class AnimePlatform {
     @JoinColumn(name="platform_id", nullable = false)
     private Platform platform;
 
+    public AnimePlatform(Anime anime, Platform platform) {
+        this.anime = anime;
+        this.platform = platform;
+    }
 
     public void setAnime(Anime anime) {
         this.anime = anime;
