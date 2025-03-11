@@ -22,7 +22,7 @@ public class Character {
     @Column(name="description", nullable = false)
     private String description;
 
-    @Column(name="image", length = 150, nullable = false)
+    @Column(name="image", length = 350, nullable = false)
     private String image;
 
     @ManyToOne

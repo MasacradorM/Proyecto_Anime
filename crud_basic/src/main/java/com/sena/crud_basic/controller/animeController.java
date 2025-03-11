@@ -1,8 +1,8 @@
 package com.sena.crud_basic.controller;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sena.crud_basic.DTO.countryDTO;
-import com.sena.crud_basic.service.countryService;
+import com.sena.crud_basic.DTO.animeDTO;
+import com.sena.crud_basic.service.animeService;
 
 
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
-@RequestMapping("/api/v1/country")
-public class countryController {
+@RequestMapping("/api/v1/anime")
+public class animeController {
 
     /*
      * GET
@@ -24,11 +24,11 @@ public class countryController {
      * DELETE
      */
     @Autowired
-    private countryService countryService;
+    private animeService animeService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> registerCountry(@RequestBody countryDTO country) {
-        countryService.save(country);
+    public ResponseEntity<Object> registerAnime(@RequestBody animeDTO anime) {
+        animeService.save(anime);
         return new ResponseEntity<>("register OK", HttpStatus.OK);
     }
 

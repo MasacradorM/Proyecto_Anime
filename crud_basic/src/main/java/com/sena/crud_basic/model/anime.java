@@ -26,7 +26,7 @@ public class Anime {
     @Column(name="year_premiere", length = 30, nullable = false)
     private Year year_premiere;
 
-    @Column(name="image", length = 150, nullable = false)
+    @Column(name="image", length = 350, nullable = false)
     private String image;
 
     @ManyToOne

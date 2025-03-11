@@ -18,7 +18,7 @@ public class Platform {
     @Column(name="name", length = 30, nullable = false)
     private String name;
 
-    @Column(name="image", length = 150, nullable = false)
+    @Column(name="image", length = 350, nullable = false)
     private String image;
 
     @ManyToOne

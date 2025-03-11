@@ -8,8 +8,6 @@ import com.sena.crud_basic.model.Country;
 import com.sena.crud_basic.repository.Icountry;
 
 
-
-
 @Service
 public class countryService {
 
@@ -25,8 +23,8 @@ public class countryService {
 
     // register and update
     public void save(countryDTO countryDTO) {
-        Country userRegister = converToModel(countryDTO);
-        data.save(userRegister);
+        Country countryRegister = convertToModel(countryDTO);
+        data.save(countryRegister);
     }
 
     public countryDTO convertToDTO(Country country) {
@@ -35,7 +33,7 @@ public class countryService {
         return countrydto;
     }
 
-    public Country converToModel(countryDTO countryDTO) {
+    public Country convertToModel(countryDTO countryDTO) {
         Country country = new Country(
                 0,
                 countryDTO.getName());

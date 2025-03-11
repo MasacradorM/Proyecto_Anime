@@ -1,13 +1,13 @@
 package com.sena.crud_basic.DTO;
 
 
-public class countryDTO {
+public class genderDTO {
 
     private String name;
 
 
 
-    public countryDTO(String name) {
+    public genderDTO(String name) {
         this.name = name;
 
     }
