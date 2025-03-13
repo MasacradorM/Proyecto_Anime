@@ -24,7 +24,7 @@ public class AnimeGender {
     @JoinColumn(name = "anime_id", nullable = false)
     private Anime anime;
 
-    public AnimeGender(Gender gender, Anime anime, int anime_gender_id) {
+    public AnimeGender(int anime_gender_id, Gender gender, Anime anime) {
         this.anime_gender_id = anime_gender_id;
         this.gender = gender;
         this.anime = anime;

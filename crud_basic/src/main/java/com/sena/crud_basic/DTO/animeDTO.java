@@ -1,43 +1,66 @@
 package com.sena.crud_basic.DTO;
 
-import com.sena.crud_basic.model.Country;
+import java.time.Year;
+
+import com.sena.crud_basic.model.Estudio;
+
 
 public class animeDTO {
-
-    private String name;
-    private Country country_id;
+    private String title;
+    private String synopsis;
+    private Year year_premiere;
     private String image;
+    private Estudio estudio;
 
-    
-
-    public animeDTO(String name, Country country_id, String image) {
-        this.name = name;
-        this.country_id = country_id;
+    public animeDTO( String title, String synopsis, Year year_premiere, String image, Estudio estudio) {
+        this.title = title;
+        this.synopsis = synopsis;
+        this.year_premiere = year_premiere;
         this.image = image;
+        this.estudio = estudio;
+    }
 
+
+
+    public void setTitle(String title) {
+        this.title = title;
     }
-    public String getImage() {
-        return image;
+
+    public String getTitle() {
+        return title;
     }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setYear_premiere(Year year_premiere) {
+        this.year_premiere = year_premiere;
+    }
+
+    public Year getYear_premiere() {
+        return year_premiere;
+    }
+
     public void setImage(String image) {
         this.image = image;
     }
-    
-    public Country getCountry_id(){
-        return country_id;
+
+    public String getImage() {
+        return image;
     }
 
-    public void setCountry_id(Country country_id) {
-        this.country_id = country_id;   
-    }
-    
-    public String getName() {
-        return name;
+    public void setEstudio(Estudio estudio) {
+        this.estudio = estudio;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Estudio getEstudio() {
+        return estudio;
     }
-
+   
    
 }

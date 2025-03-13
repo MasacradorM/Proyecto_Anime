@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 
 @Entity(name="characters")
@@ -19,22 +20,24 @@ public class Character {
     @Column(name="name", length = 30, nullable = false)
     private String name;
 
-    @Column(name="description", nullable = false)
+    @Lob
+    @Column(name="description", columnDefinition = "TEXT", nullable = false)
     private String description;
 
-    @Column(name="image", length = 350, nullable = false)
+    @Lob
+    @Column(name="image", columnDefinition = "TEXT", nullable = false)
     private String image;
 
     @ManyToOne
     @JoinColumn(name = "anime_id", nullable = false)
-    private Anime anime_id;
+    private Anime anime;
 
-    public Character(int character_id, String name, String description, String image, Anime anime_id) {
+    public Character(int character_id, String name, String description, String image, Anime anime) {
         this.character_id = character_id;
         this.name = name;
         this.description = description;
         this.image = image;
-        this.anime_id = anime_id;
+        this.anime = anime;
     }
 
     public void setCharacter_id(int character_id) {
@@ -69,12 +72,12 @@ public class Character {
         return image;
     }
 
-    public void setAnime_id(Anime anime_id) {
-        this.anime_id = anime_id;
+    public void setAnime(Anime anime) {
+        this.anime = anime;
     }
 
-    public Anime getAnime_id() {
-        return anime_id;
+    public Anime getAnime() {
+        return anime;
     }
   
 }

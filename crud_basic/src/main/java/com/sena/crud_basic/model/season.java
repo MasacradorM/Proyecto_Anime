@@ -7,6 +7,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity(name="season")
 public class Season {
@@ -21,6 +23,18 @@ public class Season {
 
     @Column(name="release_date", nullable = false)
     private LocalDate release_date;
+
+    @ManyToOne
+    @JoinColumn(name = "anime_id", nullable = false)
+    private Anime anime;
+
+    public Season(int season_id, String name, LocalDate release_date, Anime anime) {
+        this.season_id = season_id;
+        this.name = name;
+        this.release_date = release_date;
+        this.anime = anime;
+
+    }
 
     public void setSeason_id(int season_id) {
         this.season_id = season_id;
@@ -44,6 +58,14 @@ public class Season {
 
     public LocalDate getRelease_date() {
         return release_date;
+    }
+
+    public void setAnime(Anime anime) {
+        this.anime = anime;
+    }
+
+    public Anime getAnime() {
+        return anime;
     }
 
 }

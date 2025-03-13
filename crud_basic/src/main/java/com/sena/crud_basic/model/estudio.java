@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 
 @Entity(name="estudio")
@@ -18,7 +19,8 @@ public class Estudio {
     @Column(name="name", length = 50, nullable = false)
     private String name;
 
-    @Column(name="image", length = 350, nullable = false)
+    @Lob
+    @Column(name="image", columnDefinition = "TEXT", nullable = false)
     private String image;
 
     @ManyToOne

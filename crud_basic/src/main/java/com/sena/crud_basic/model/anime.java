@@ -8,8 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
-
 @Entity(name="anime")
 public class Anime {
     @Id
@@ -17,25 +17,27 @@ public class Anime {
     @Column(name="anime_id")
     private int anime_id;
 
-    @Column(name="titulo", length = 30, nullable = false)
-    private String titulo;
+    @Column(name="title", length = 30, nullable = false)
+    private String title;
 
-    @Column(name="synopsis", nullable = false)
+    @Lob
+    @Column(name="synopsis", columnDefinition = "TEXT", nullable = false)
     private String synopsis;
 
     @Column(name="year_premiere", length = 30, nullable = false)
     private Year year_premiere;
 
-    @Column(name="image", length = 350, nullable = false)
+    @Lob
+    @Column(name="image", columnDefinition = "TEXT", nullable = false)
     private String image;
 
     @ManyToOne
     @JoinColumn(name = "estudio_id", nullable = false)
     private Estudio estudio;
 
-    public Anime(int anime_id, String titulo, String synopsis, Year year_premiere, String image, Estudio estudio) {
+    public Anime(int anime_id, String title, String synopsis, Year year_premiere, String image, Estudio estudio) {
         this.anime_id = anime_id;
-        this.titulo = titulo;
+        this.title = title;
         this.synopsis = synopsis;
         this.year_premiere = year_premiere;
         this.image = image;
@@ -50,12 +52,12 @@ public class Anime {
         return anime_id;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
     public void setSynopsis(String synopsis) {

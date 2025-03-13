@@ -14,7 +14,7 @@ public class Gender {
     @Column(name="gender_id")
     private int gender_id;
 
-    @Column(name="name", length = 50, nullable = false)
+    @Column(name="name", length = 255, nullable = false)
     private String name;
 
     public Gender(int gender_id, String name) {

@@ -24,7 +24,8 @@ public class AnimePlatform {
     @JoinColumn(name="platform_id", nullable = false)
     private Platform platform;
 
-    public AnimePlatform(Anime anime, Platform platform) {
+    public AnimePlatform( int anime_platform_id,Anime anime, Platform platform) {
+        this.anime_platform_id = anime_platform_id;
         this.anime = anime;
         this.platform = platform;
     }
