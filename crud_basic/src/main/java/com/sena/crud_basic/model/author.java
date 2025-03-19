@@ -29,6 +29,7 @@ public class Author {
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
+    public Author(){}
     public Author(int author_id, String name, String image, Country country) {
         this.author_id = author_id;
         this.name = name;

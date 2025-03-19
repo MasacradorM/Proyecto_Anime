@@ -28,6 +28,7 @@ public class Season {
     @JoinColumn(name = "anime_id", nullable = false)
     private Anime anime;
 
+    public Season(){}
     public Season(int season_id, String name, LocalDate release_date, Anime anime) {
         this.season_id = season_id;
         this.name = name;

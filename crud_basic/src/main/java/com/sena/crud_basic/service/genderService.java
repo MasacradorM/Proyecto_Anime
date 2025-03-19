@@ -1,9 +1,14 @@
 package com.sena.crud_basic.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.sena.crud_basic.DTO.genderDTO;
+import com.sena.crud_basic.DTO.responseDTO;
 import com.sena.crud_basic.model.Gender;
 import com.sena.crud_basic.repository.Igender;
 
@@ -20,6 +25,29 @@ public class genderService {
     @Autowired
     private Igender data;
 
+    public List<Gender> findAll() {
+
+        return data.findAll();
+
+    }
+
+    public Optional<Gender> findById(int gender_id) {
+        return data.findById(gender_id);
+    }
+
+    public responseDTO deleteGender(int gender_id) {
+        if (!findById(gender_id).isPresent()) {
+            responseDTO respuesta = new responseDTO(
+                    HttpStatus.OK.toString(),
+                    "The register does not exist");
+            return respuesta;
+        }
+        data.deleteById(gender_id);
+        responseDTO respuesta = new responseDTO(
+                HttpStatus.OK.toString(),
+                "Se eliminó correctamente");
+        return respuesta;
+    }
     // register and update
     public void save(genderDTO cgenderDTO) {
         Gender cgenderRegister = convertToModel(cgenderDTO);

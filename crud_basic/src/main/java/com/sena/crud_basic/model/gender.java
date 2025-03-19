@@ -17,6 +17,7 @@ public class Gender {
     @Column(name="name", length = 255, nullable = false)
     private String name;
 
+    public Gender(){}
     public Gender(int gender_id, String name) {
         this.gender_id = gender_id;
         this.name = name;
