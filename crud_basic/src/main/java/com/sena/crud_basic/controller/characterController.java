@@ -3,6 +3,9 @@ package com.sena.crud_basic.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,5 +33,29 @@ public class characterController {
         characterService.save(character);
         return new ResponseEntity<>("register OK", HttpStatus.OK);
     }
+    @GetMapping("/")
+    public ResponseEntity<Object> getAllcharacter() {
+        var listcharacter = characterService.findAll();
+        // List<character> listcharacter2= characterService.findAll();
+        return new ResponseEntity<>(listcharacter, HttpStatus.OK);
+    }
 
+    /*
+     * Se requiere un dato, el ID
+     * PathVariable=captura de información por la URL
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getOnecharacter(@PathVariable int character_id) {
+        var character = characterService.findById(character_id);
+        if (!character.isPresent())
+            return new ResponseEntity<>("", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(character, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteCharacter(@PathVariable int character_id) {
+        var message= characterService.deleteCharacter(character_id);
+        
+        return new ResponseEntity<>(message, HttpStatus.OK);
+    }
 }

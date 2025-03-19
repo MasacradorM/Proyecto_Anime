@@ -34,7 +34,7 @@ public class platformController {
         platformService.save(platform);
         return new ResponseEntity<>("register OK", HttpStatus.OK);
     }
-            @GetMapping("/")
+    @GetMapping("/")
     public ResponseEntity<Object> getAllplatform() {
         var listplatform = platformService.findAll();
         // List<platform> listplatform2= platformService.findAll();
