@@ -174,6 +174,26 @@ function addChangeEventToInputs(inputs) {
     });
 }
 
+async function loadGenders() {
+    let response = await fetch("http://localhost:8085/api/v1/gender/");
+    let data = await response.json();
+
+    let genderSelect = document.getElementById("genderOptions");
+    genderSelect.innerHTML = ""; // Limpiar opciones anteriores
+
+    let genderChoices = data.map(gender => ({
+        value: gender.gender_id,
+        label: gender.name
+    }));
+
+    let choices = new Choices(genderSelect, {
+        removeItemButton: true
+    });
+
+    choices.setChoices(genderChoices, 'value', 'label', true);
+}
+document.addEventListener("DOMContentLoaded", loadGenders);
+
 const countryInputs = [document.getElementById("countryA"), document.getElementById("countryP"), document.getElementById("countryE")];
 fetchCountries();
 fetchStudios();
@@ -271,6 +291,8 @@ function registerPlatform() {
 
     });
 }
+
+
 function registerEstudio() {
 
     return new Promise(async (resolve) => {
@@ -293,6 +315,44 @@ function registerEstudio() {
 
     });
 }
+async function registerAnime() {
+    return new Promise(async (resolve) => {
+        let selectedGenders = Array.from(document.getElementById("genderOptions").selectedOptions)
+                                  .map(option => option.value);
+        
+        let bodyContent = JSON.stringify({
+            id: 0,
+            title: document.getElementById("title").value,
+            synopsis: document.getElementById("synopsis").value,
+            year_premiere: document.getElementById("yearPremier").value,
+            episodes: document.getElementById("episodes").value,
+            image: document.getElementById("image").value,
+            estudio: { estudio_id: estudioID },
+            author: { author_id: authorID }
+        });
+
+        let response = await fetch("http://localhost:8085/api/v1/anime/", {
+            method: "POST",
+            body: bodyContent,
+            headers: headersList
+        });
+
+        let animeData = await response.json();
+        let animeId = animeData.anime_id;
+
+        for (let genderId of selectedGenders) {
+            await fetch("http://localhost:8085/api/v1/animeGender/", {
+                method: "POST",
+                body: JSON.stringify({ anime_id: animeId, gender_id: genderId }),
+                headers: headersList
+            });
+        }
+        console.log(await response.text());
+        console.log("Anime registrado con géneros asociados.");
+    });
+}
+
+/*
 function registerAnime() {
 
     return new Promise(async (resolve) => {
@@ -318,4 +378,4 @@ function registerAnime() {
         console.log(data);
 
     });
-}
+}*/

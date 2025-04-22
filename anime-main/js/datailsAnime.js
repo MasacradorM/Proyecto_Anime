@@ -5,35 +5,36 @@ let headersList = {
 }
 // Obtener el id del anime desde la URL
 const queryParams = new URLSearchParams(window.location.search);
-const idAnime = queryParams.get('id');
-var gender;
+const idAnime = Number(queryParams.get('id'));
+var idA = idAnime;
+var genderA = [];
 
-async function fetchCountries() {
-    
+async function fetchAnimeG() {
     try {
-        let response = await fetch("http://localhost:8085/api/v1/animeGender", {
+        let response = await fetch("http://localhost:8085/api/v1/animeGender/", {
             method: "GET",
             headers: headersList 
         });
 
         if (response.ok) {
             let data = await response.json();
-
-            if(data.anime_gender.anime_id=== idAnime){
-                data.forEach((anime_gender) => {
-                    gender = anime_gender.gender.name;
-                });
-            }
+            
+            data.forEach((anime_gender) => {
+                
+                if (anime_gender.anime.anime_id === idA) {
+                    genderA.push(" "+anime_gender.gender.name); 
+                }
+            });
+            
         } else {
             console.error("Error al obtener datos:", response.status);
         }
     } catch (error) {
-        console.error("Hubo un error al cargar los países:", error);
+        console.error("Hubo un error al cargar los datos:", error);
     }
-    
 }
-fetchCountries();
-console.log(gender);
+
+fetchAnimeG().then(() => console.log(genderA));
 async function anime() {
     try {
         let response = await fetch("http://localhost:8085/api/v1/anime/", {
@@ -74,7 +75,7 @@ async function anime() {
                                                 '<li><span>Type:</span> Anime</li>'+
                                                 '<li><span>Studios:</span> '+ anime.estudio.name +'</li>'+
                                                 '<li><span>Year Premiere:</span> '+ anime.year_premiere+'</li>'+
-                                                '<li><span>Genre:</span> '+  +'</li>'+
+                                                '<li><span>Genre:</span> '+ genderA +'</li>'+
                                             '</ul>'+
                                         '</div>'+
                                     '</div>'+
