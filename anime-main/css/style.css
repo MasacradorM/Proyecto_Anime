@@ -833,10 +833,19 @@ ol {
 	margin-bottom: 20px;
 	overflow: hidden;
 }
+.product__sidebar__comment__item li {
+	color: #ffffff;
+}
 
 .product__sidebar__comment__item__pic {
 	float: left;
 	margin-right: 15px;
+}
+.product__sidebar__comment__item__pic .image {
+	width: 90px;
+	height: 130px;
+	border-radius: 10%;
+	border: #0c0c34 solid 4px;
 }
 
 .product__sidebar__comment__item__text {
@@ -847,10 +856,9 @@ ol {
 	margin-bottom: 10px;
 }
 
-.product__sidebar__comment__item__text ul li {
+.product__sidebar__comment__item__text li {
 	list-style: none;
 	font-size: 10px;
-	color: #ffffff;
 	font-weight: 700;
 	padding: 1px 10px;
 	background: rgba(255, 255, 255, 0.2);
@@ -859,6 +867,7 @@ ol {
 }
 
 .product__sidebar__comment__item__text h5 {
+	color: #ffffff;
 	margin-bottom: 10px;
 }
 
@@ -1191,6 +1200,7 @@ ol {
 	padding: 10px 15px;
 	border-radius: 2px;
 }
+
 
 /*---------------------
   Anime Watching

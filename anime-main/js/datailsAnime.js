@@ -7,7 +7,7 @@ let headersList = {
 const queryParams = new URLSearchParams(window.location.search);
 const idAnime = Number(queryParams.get('id'));
 var idA = idAnime;
-var genderA = [];
+let genderA = [];
 
 async function fetchAnimeG() {
     try {
@@ -34,7 +34,7 @@ async function fetchAnimeG() {
     }
 }
 
-fetchAnimeG().then(() => console.log(genderA));
+fetchAnimeG();
 async function anime() {
     try {
         let response = await fetch("http://localhost:8085/api/v1/anime/", {
@@ -70,13 +70,37 @@ async function anime() {
                                 '<p>'+anime.synopsis+'</p>'+
                                 '<div class="anime__details__widget">'+
                                     '<div class="row">'+
-                                        '<div class="col-lg-6 col-md-6">'+
+                                        '<div class="col-lg-4 col-md-4">'+
                                             '<ul>'+
                                                 '<li><span>Type:</span> Anime</li>'+
-                                                '<li><span>Studios:</span> '+ anime.estudio.name +'</li>'+
+                                                '<li><span>Episodes:</span> '+ anime.episodes +'</li>'+
                                                 '<li><span>Year Premiere:</span> '+ anime.year_premiere+'</li>'+
-                                                '<li><span>Genre:</span> '+ genderA +'</li>'+
+                                                '<li><span>Genres:</span> '+ genderA +'</li>'+
                                             '</ul>'+
+                                        '</div>'+
+                                        '<div class="col-lg-4 col-md-4">'+
+                                            '<div class="product__sidebar__comment__item">'+
+                                                '<div class="product__sidebar__comment__item__pic">'+
+                                                    '<img src="'+anime.author.image+'" alt="" class="image">'+
+                                                '</div>'+
+                                                    '<li>Author: </li>'+
+                                                '<div class="product__sidebar__comment__item__text">'+
+                                                    '<h5>'+anime.author.name+'</h5>'+
+                                                    '<span>'+anime.author.country.name+'</span>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="col-lg-4 col-md-4">'+
+                                            '<div class="product__sidebar__comment__item">'+
+                                                '<div class="product__sidebar__comment__item__pic">'+
+                                                    '<img src="'+anime.estudio.image+'" alt="" class="image">'+
+                                                '</div>'+
+                                                    '<li>Studio: </li>'+
+                                                '<div class="product__sidebar__comment__item__text">'+
+                                                    '<h5>'+anime.estudio.name+'</h5>'+
+                                                    '<span>'+anime.estudio.country.name+'</span>'+
+                                                '</div>'+
+                                            '</div>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
